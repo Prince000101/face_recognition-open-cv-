@@ -97,6 +97,3 @@ Make sure your webcam is connected and accessible.
 
 **Prince000101**
 GitHub: [@Prince000101](https://github.com/Prince000101)
-
-
-# persnal
