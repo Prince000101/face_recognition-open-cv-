@@ -1,0 +1,17 @@
+<div class="queue-card">
+    <div class="queue-card__header">
+        <h3>{ title }</h3>
+        <span class="badge">{ status }</span>
+    </div>
+    <div class="queue-card__body">
+        <p>{ description }</p>
+        <div class="queue-card__meta">
+            <span>Created: { created_at | date }</span>
+            <span>By: { author }</span>
+        </div>
+    </div>
+    <div class="queue-card__actions">
+        <button (click)="onEdit()">Edit</button>
+        <button (click)="onDelete()">Delete</button>
+    </div>
+</div>
