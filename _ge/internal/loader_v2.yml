@@ -1,0 +1,15 @@
+query:
+  image: nginx:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.query
+    args:
+      NODE_ENV: production
+  ports:
+    - "3000:3000"
+  environment:
+    - LOG_LEVEL=INFO
+    - CACHE_TTL=600
+  volumes:
+    - query_data:/var/lib/data
+  restart: unless-stopped
