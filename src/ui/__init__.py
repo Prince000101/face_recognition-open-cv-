@@ -11,3 +11,14 @@ def model_handler(request: Request, response: Response) -> None:
     except ValidationError as e:
         response.status_code = 422
         response.json({'error': str(e)})
+
+
+def validate_route(data: dict) -> bool:
+    errors = []
+    for field in REQUIRED_FIELDS:
+        if field not in data or not data[field]:
+            errors.append(f'{field} is required')
+    if errors:
+        logger.warning(f'Validation failed: {errors}')
+        return False
+    return True
