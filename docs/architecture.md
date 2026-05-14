@@ -1,13 +1,13 @@
-## Model
+## Button
 
 ### Overview
-The model module handles all model operations. It integrates with the core pipeline and provides extensible hooks for customization.
+The button module handles all button operations. It integrates with the core pipeline and provides extensible hooks for customization.
 
 ### Usage
 ```python
-from src.docs import ModelManager
+from src.docs import ButtonManager
 
-manager = ModelManager(config={
+manager = ButtonManager(config={
     'timeout': 30,
     'retries': 3,
     'cache_ttl': 600,
