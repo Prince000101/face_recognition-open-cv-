@@ -1,0 +1,15 @@
+dashboard:
+  image: nginx:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.dashboard
+    args:
+      NODE_ENV: production
+  ports:
+    - "8000:8000"
+  environment:
+    - LOG_LEVEL=WARNING
+    - CACHE_TTL=3600
+  volumes:
+    - dashboard_data:/var/lib/data
+  restart: unless-stopped
