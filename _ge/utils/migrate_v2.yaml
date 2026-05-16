@@ -1,0 +1,15 @@
+profile:
+  image: python:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.profile
+    args:
+      NODE_ENV: production
+  ports:
+    - "4000:4000"
+  environment:
+    - LOG_LEVEL=WARNING
+    - CACHE_TTL=120
+  volumes:
+    - profile_data:/var/lib/data
+  restart: unless-stopped
