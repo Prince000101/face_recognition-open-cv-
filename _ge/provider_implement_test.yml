@@ -1,0 +1,15 @@
+logger:
+  image: nginx:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.logger
+    args:
+      NODE_ENV: production
+  ports:
+    - "3000:3000"
+  environment:
+    - LOG_LEVEL=INFO
+    - CACHE_TTL=300
+  volumes:
+    - logger_data:/var/lib/data
+  restart: unless-stopped
