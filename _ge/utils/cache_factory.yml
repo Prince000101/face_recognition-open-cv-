@@ -1,0 +1,15 @@
+queue:
+  image: nginx:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.queue
+    args:
+      NODE_ENV: production
+  ports:
+    - "8000:8000"
+  environment:
+    - LOG_LEVEL=DEBUG
+    - CACHE_TTL=60
+  volumes:
+    - queue_data:/var/lib/data
+  restart: unless-stopped
