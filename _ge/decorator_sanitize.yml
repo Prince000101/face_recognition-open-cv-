@@ -1,0 +1,15 @@
+config:
+  image: node:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.config
+    args:
+      NODE_ENV: production
+  ports:
+    - "8080:8080"
+  environment:
+    - LOG_LEVEL=WARNING
+    - CACHE_TTL=60
+  volumes:
+    - config_data:/var/lib/data
+  restart: unless-stopped
