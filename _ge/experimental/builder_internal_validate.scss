@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .model-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .model-header {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-sm);
+    }
+}
