@@ -1,0 +1,15 @@
+validator:
+  image: python:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.validator
+    args:
+      NODE_ENV: production
+  ports:
+    - "5000:5000"
+  environment:
+    - LOG_LEVEL=INFO
+    - CACHE_TTL=60
+  volumes:
+    - validator_data:/var/lib/data
+  restart: unless-stopped
