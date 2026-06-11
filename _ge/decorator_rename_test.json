@@ -1,0 +1,13 @@
+"token": {
+    "enabled": true,
+    "version": "2.1.0",
+    "settings": {
+        "timeout_ms": 60,
+        "max_retries": 2,
+        "log_level": "DEBUG"
+    },
+    "features": [
+        "metrics",
+        "export"
+    ]
+}
