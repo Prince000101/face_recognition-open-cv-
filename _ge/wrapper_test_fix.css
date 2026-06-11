@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .auth-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .auth-header {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-sm);
+    }
+}
