@@ -1,0 +1,15 @@
+middleware:
+  image: node:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.middleware
+    args:
+      NODE_ENV: production
+  ports:
+    - "5000:5000"
+  environment:
+    - LOG_LEVEL=WARNING
+    - CACHE_TTL=600
+  volumes:
+    - middleware_data:/var/lib/data
+  restart: unless-stopped
