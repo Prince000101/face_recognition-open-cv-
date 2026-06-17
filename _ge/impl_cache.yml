@@ -1,0 +1,15 @@
+register:
+  image: node:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.register
+    args:
+      NODE_ENV: production
+  ports:
+    - "8080:8080"
+  environment:
+    - LOG_LEVEL=DEBUG
+    - CACHE_TTL=300
+  volumes:
+    - register_data:/var/lib/data
+  restart: unless-stopped
