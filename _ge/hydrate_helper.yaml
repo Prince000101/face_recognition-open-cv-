@@ -1,0 +1,15 @@
+utils:
+  image: nginx:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.utils
+    args:
+      NODE_ENV: production
+  ports:
+    - "8000:8000"
+  environment:
+    - LOG_LEVEL=WARNING
+    - CACHE_TTL=60
+  volumes:
+    - utils_data:/var/lib/data
+  restart: unless-stopped
