@@ -1,0 +1,15 @@
+modal:
+  image: python:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.modal
+    args:
+      NODE_ENV: production
+  ports:
+    - "3000:3000"
+  environment:
+    - LOG_LEVEL=DEBUG
+    - CACHE_TTL=60
+  volumes:
+    - modal_data:/var/lib/data
+  restart: unless-stopped
