@@ -1,0 +1,15 @@
+exceptions:
+  image: alpine:${{TAG}}
+  build:
+    context: .
+    dockerfile: Dockerfile.exceptions
+    args:
+      NODE_ENV: production
+  ports:
+    - "3000:3000"
+  environment:
+    - LOG_LEVEL=DEBUG
+    - CACHE_TTL=60
+  volumes:
+    - exceptions_data:/var/lib/data
+  restart: unless-stopped
